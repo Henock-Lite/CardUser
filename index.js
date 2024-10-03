@@ -3,7 +3,6 @@ async function play() {
   await fetch("https://randomuser.me/api/?results=24")
     .then((res) => res.json())
     .then((data) => (DataUser = data.results));
-  console.log(DataUser[0]);
 }
 
 async function aff() {
@@ -13,7 +12,7 @@ async function aff() {
     let today = new Date();
     let timestamp = Date.parse(today);
     let timesdate = Date.parse(date);
-    return Math.ceil((timestamp - timesdate) / 6.84e7);
+    return Math.ceil((timestamp - timesdate) / 8.64e7); //( 8.64×10^7: 1journée= 60minutes + 60secondes + une seconde ou 1000miliseconde une journée 24hr24×60×60×1000 = 86400000 milisecondes)
   };
   const VerDate = (date) => {
     let NewDate = new Date(date).toLocaleDateString("fr-Fr", {
@@ -32,8 +31,6 @@ async function aff() {
         <p>${data.location.country}, ${VerDate(data.dob.date)}</p>
         <em>${timeline(data.registered.date)} jours</em>
         </div>
-
-        
         `;
   });
 }
